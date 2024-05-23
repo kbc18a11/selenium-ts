@@ -1,28 +1,14 @@
-import { Builder, By, Capabilities, Key, until, WebDriver } from 'selenium-webdriver'
-const capabilities: Capabilities = Capabilities.chrome()
-capabilities.set('chromeOptions', {
-  args: [
-    '--headless',
-    '--disable-gpu',
-    '--window-size=1024,768'
-  ],
-  w3c: false
-})
+import { Builder, By, Key, until, Browser } from 'selenium-webdriver';
 
-async function search(query: string): Promise<void> {
-  const driver: WebDriver = await new Builder()
-    .withCapabilities(capabilities)
-    .build()
+async function main(): Promise<void> {
+  const driver = await new Builder().forBrowser(Browser.CHROME).build();
   try {
-    await driver.get('https://qiita.com/')
-    await driver
-      .wait(until.elementLocated(By.name('q')), 5000)
-      .sendKeys(query, Key.RETURN)
-  } catch(e) {
-    console.log(e)
+    await driver.get('https://www.google.com/ncr');
+    await driver.findElement(By.name('q')).sendKeys('webdriver', Key.RETURN);
+    await driver.wait(until.titleIs('webdriver - Google Search'), 1000);
   } finally {
-    driver && await driver.quit()
+    await driver.quit();
   }
 }
 
-search('selenium')
+main();
