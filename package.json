@@ -1,0 +1,26 @@
+{
+  "name": "selenium-ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx ts-node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kbc18a11/selenium-ts.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kbc18a11/selenium-ts/issues"
+  },
+  "homepage": "https://github.com/kbc18a11/selenium-ts#readme",
+  "dependencies": {
+    "@types/selenium-webdriver": "^4.1.22",
+    "selenium-webdriver": "^4.21.0",
+    "typescript": "^5.4.5"
+  }
+}
